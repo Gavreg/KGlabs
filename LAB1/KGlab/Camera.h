@@ -1,6 +1,4 @@
-#ifndef CAMERA_H
-#define CAMERA_H
-
+#pragma once
 #include "MyOGL.h"
 
 class Camera
@@ -81,5 +79,3 @@ public:
 	void SetUpCamera();
 
 };
-
-#endif

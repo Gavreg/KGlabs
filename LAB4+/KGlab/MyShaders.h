@@ -1,14 +1,9 @@
-﻿#ifndef MYSHADERS_H
-#define MYSHADERS_H
+﻿#pragma once
 
-
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include "GL/glext.h"
 #include <windows.h>
-
-
-
-#include <GL\gl.h>
-#include <GL\glu.h>
-#include "GL\glext.h"
 
 #include <string>
 
@@ -51,14 +46,7 @@ extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 void initShadersFunctions();
 int loadShader(const char  *filename, char **shaderSrc, int *programLength);
 
-
-
-
-
-
-
-//вызываем эту функцию в  перед рендером для настройки шейдеров
-
+// Вызываем эту функцию перед рендером для настройки шейдеров
 void initShadersFunctions();
 
 class Shader
@@ -99,13 +87,10 @@ public:
 };
 
 
-//загружает код шейдера из файла
+// Загружает код шейдера из файла
 //************************************
-// Parameter: char * filename   имя файла
-// Parameter: char * * shaderSrc   указатель на массив символов, в который загрузится код шейдера. после того, как станет ненужным надо высвобадить память!
-// Parameter: int * programLength  указатель на длину массива символов.
+// Parameter: char * filename      Имя файла
+// Parameter: char * * shaderSrc   Указатель на массив символов, в который загрузится код шейдера. После того, как станет ненужным, надо освободить память!
+// Parameter: int * programLength  Указатель на длину массива символов.
 //************************************
 int loadShader(const char  *filename, char **shaderSrc, int *programLength);
-
-
-#endif // !MYSHADERS_H

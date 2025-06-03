@@ -1,9 +1,9 @@
 ﻿#pragma once
 
+#include "Event.h"
+
 #include <Windows.h>
 #include <atomic>
-
-#include "Event.h"
 
 struct Message
 {
@@ -11,8 +11,6 @@ struct Message
 	WPARAM wParam;
 	LPARAM lParam;
 };
-
-
 
 void setHwnd(HWND window);
 
@@ -25,7 +23,6 @@ void join_render_thread();
 void join_msg_thread();
 
 void stop_all_threads();
-
 
 struct MouseWheelEventArg
 {
@@ -45,13 +42,12 @@ struct KeyEventArg
 
 class OpenGL
 {
-	
-	HDC g_hDC;
-	HGLRC g_hRC;
+    HDC g_hDC;
+    HGLRC g_hRC;
 
 	std::atomic_int tmp_width, tmp_height;
-	
-	std::atomic_bool drag = false;
+
+    std::atomic_bool drag = false;
 	double camDist;
 	double camX, camY, camZ;
 	double camNz;
@@ -66,10 +62,7 @@ class OpenGL
 	HWND g_hWnd;
 	std::atomic_int width, height;
 
-
 public:
-
-
 	OpenGL();
 	~OpenGL();
 
@@ -95,8 +88,6 @@ public:
 		return width;
 	}
 
-
-
 	void setHWND(HWND window);
 
 	void wheelEvent(float delta);
@@ -108,8 +99,8 @@ public:
 
 	void mouseRdown(short mX, short mY);
 	void mouseRup(short mX, short mY);
-	
-	void mouseMdown(short mX, short mY);
+
+    void mouseMdown(short mX, short mY);
 	void mouseMup(short mX, short mY);
 
 	void keyDown(int key);
@@ -124,15 +115,10 @@ public:
 
 	void init(void);
 
-
 	static bool isKeyPressed(int key)
 	{
 		short state = GetAsyncKeyState(key);
 
 		return (bool)(state & 0x8000);
 	}
-
 };
-
-
-

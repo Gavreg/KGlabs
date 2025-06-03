@@ -1,11 +1,12 @@
 
 #pragma once
-#include <Windows.h>
-#include<string>
-#include<sstream>
+
+#include <sstream>
+#include <string>
+#include <windows.h>
 
 #ifdef _DEBUG
-#include <Debugapi.h> 
+#include <Debugapi.h>
 struct debug_print
 {
 	template<class C>

@@ -1,8 +1,7 @@
 #include "Camera.h"
 
+#include <GL/glu.h>
 #include <windows.h>
-#include <gl/GL.h>
-#include <gl/GLU.h>
 
 void Camera::setPosition(double x, double y, double z)
 {
@@ -10,11 +9,10 @@ void Camera::setPosition(double x, double y, double z)
 	camY = y;
 	camZ = z;
 
+    camDist = sqrt(x * x + y * y + z * z);
 
-	camDist = sqrt(x * x + y * y + z * z);
-
-	_fi1 = atan2(y, x);
-	_fi2 = atan2(z,sqrt(x*x+y*y));
+    _fi1 = atan2(y, x);
+    _fi2 = atan2(z, sqrt(x * x + y * y));
 }
 
 void Camera::caclulateCameraPos()
@@ -69,10 +67,10 @@ void Camera::MouseMovie(OpenGL* sender, MouseEventArg arg)
 
 void Camera::SetUpCamera()
 {
-	//сообщаем openGL настройки нашей камеры,
-	// где она находится и куда смотрит
-	// https://learn.microsoft.com/ru-ru/windows/win32/opengl/glulookat
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+    // Сообщаем OpenGL настройки нашей камеры,
+    // где она находится и куда смотрит
+    // https://learn.microsoft.com/ru-ru/windows/win32/opengl/glulookat
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 	gluLookAt(camX, camY, camZ, 0, 0, 0, 0, 0, camNz);
 }

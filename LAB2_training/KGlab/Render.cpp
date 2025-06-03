@@ -1,16 +1,15 @@
-﻿#include "Render.h"
-#include <Windows.h>
-#include <GL\GL.h>
-#include <GL\GLU.h>
+#include "Render.h"
 
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <windows.h>
 
-
-//библиотека для разгрузки изображений
-//https://github.com/nothings/stb
+// Библиотека для разгрузки изображений
+// https://github.com/nothings/stb
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-//внутренняя логика "движка"
+// Внутренняя логика "движка"
 #include "MyOGL.h"
 extern OpenGL gl;
 
@@ -23,7 +22,7 @@ void initRender()
 	//================НАСТРОЙКА КАМЕРЫ======================
 	camera.caclulateCameraPos();
 
-	//привязываем камеру к событиям "движка"
+	// Привязываем камеру к событиям "движка"
 	gl.WheelEvent.reaction(&camera, &Camera::Zoom); //рекакия на колесико мыши
 	gl.MouseMovieEvent.reaction(&camera, &Camera::MouseMovie);//рекакия на движение мыши
 	gl.MouseLeaveEvent.reaction(&camera, &Camera::MouseLeave); //мышь покидает окно
@@ -33,14 +32,10 @@ void initRender()
 	camera.setPosition(2, 1.5, 1.5); //начальная позиция камеры
 }
 
-void Render(double delta_time)
-{    
-	camera.SetUpCamera(); //применяем настройки камеры. эту функцию удалать нельзя
-	gl.DrawAxes(); //рисуем оси координат
-	
-	//программировать тут
+void Render(double delta_time) {
+    camera.SetUpCamera(); // Применяем настройки камеры. Эту функцию удалять нельзя
+    gl.DrawAxes(); // Рисуем оси координат
 
-}   
+    // Программировать тут
 
-
-
+}

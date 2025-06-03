@@ -1,7 +1,6 @@
-﻿#ifndef TEXTURE_H
-#define TEXTURE_H
+﻿#pragma once
 
-#include<string>
+#include <string>
 
 class Texture
 {
@@ -15,5 +14,3 @@ public:
 	void Bind();
 
 };
-
-#endif
