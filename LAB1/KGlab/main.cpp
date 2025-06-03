@@ -26,7 +26,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     RegisterClass(&wc);
 
     // Создаём окно
-	HWND hwnd = CreateWindowEx(0,                    // Опциональные стили
+    HWND hwnd = CreateWindowEx(0,                    // Опциональные стили
                                CLASS_NAME,           // Класс окна
                                L"Лабораторка по КГ", // Имя окна
                                WS_OVERLAPPEDWINDOW,  // Стиль окна

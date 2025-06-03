@@ -1,12 +1,11 @@
 ﻿#pragma once
 
+#include "GL/glext.h"
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include "GL/glext.h"
 #include <windows.h>
 
 #include <string>
-
 
 extern PFNGLDELETEOBJECTARBPROC glDeleteObjectARB;
 extern PFNGLGETHANDLEARBPROC glGetHandleARB;
@@ -28,12 +27,10 @@ extern PFNGLUNIFORM2FARBPROC glUniform2fARB;
 extern PFNGLUNIFORM3FARBPROC glUniform3fARB;
 extern PFNGLUNIFORM4FARBPROC glUniform4fARB;
 
-extern PFNGLUNIFORM1FVARBPROC  glUniform1fvARB;
-extern PFNGLUNIFORM2FVARBPROC  glUniform2fvARB;
-extern PFNGLUNIFORM3FVARBPROC  glUniform3fvARB;
-extern PFNGLUNIFORM4FVARBPROC  glUniform4fvARB;
-
-
+extern PFNGLUNIFORM1FVARBPROC glUniform1fvARB;
+extern PFNGLUNIFORM2FVARBPROC glUniform2fvARB;
+extern PFNGLUNIFORM3FVARBPROC glUniform3fvARB;
+extern PFNGLUNIFORM4FVARBPROC glUniform4fvARB;
 
 extern PFNGLUNIFORM1IARBPROC glUniform1iARB;
 
@@ -41,56 +38,45 @@ extern PFNGLGETUNIFORMLOCATIONARBPROC glGetUniformLocationARB;
 
 extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 
-
-
 void initShadersFunctions();
-int loadShader(const char  *filename, char **shaderSrc, int *programLength);
+int loadShader(const char* filename, char** shaderSrc, int* programLength);
 
 // Вызываем эту функцию перед рендером для настройки шейдеров
 void initShadersFunctions();
 
 class Shader
 {
-protected:
+  protected:
+  public:
+    GLhandleARB program;
+    GLhandleARB vertex;
+    GLhandleARB fragment;
 
+    std::string VshaderFileName;
+    std::string FshaderFileName;
 
-public:
-	GLhandleARB program;
-	GLhandleARB vertex;
-	GLhandleARB fragment;
+    Shader()
+    {
+    }
 
-	std::string VshaderFileName;
-	std::string FshaderFileName;
+    ~Shader()
+    {
+    }
 
+    void LoadShaderFromFile();
 
+    void Compile();
 
-	Shader()
-	{
+    void UseShader();
 
-
-	}
-
-	~Shader()
-	{
-
-	}
-
-	void LoadShaderFromFile();
-
-
-	void Compile();
-
-
-	void UseShader();
-
-	static void DontUseShaders();
+    static void DontUseShaders();
 };
-
 
 // Загружает код шейдера из файла
 //************************************
 // Parameter: char * filename      Имя файла
-// Parameter: char * * shaderSrc   Указатель на массив символов, в который загрузится код шейдера. После того, как станет ненужным, надо освободить память!
+// Parameter: char * * shaderSrc   Указатель на массив символов, в который загрузится код шейдера. После того, как
+//   станет ненужным, надо освободить память!
 // Parameter: int * programLength  Указатель на длину массива символов.
 //************************************
-int loadShader(const char  *filename, char **shaderSrc, int *programLength);
+int loadShader(const char* filename, char** shaderSrc, int* programLength);
