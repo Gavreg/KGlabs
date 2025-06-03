@@ -1,13 +1,9 @@
-﻿#include "Render.h"
+#include "Render.h"
 
-#include <Windows.h>
-#include <GL\GL.h>
-#include <GL\GLU.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <windows.h>
 
 void Render(double delta_time)
-{    
-	
-}   
-
-
-
+{
+}

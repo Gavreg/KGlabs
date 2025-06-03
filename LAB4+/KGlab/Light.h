@@ -1,45 +1,39 @@
-#ifndef LIGHT_H
-#define LIGHT_H
+#pragma once
 
 #include "MyOGL.h"
 
 class Light
 {
-	double posX = 1;
-	double posY = 1;
-	double posZ = 1;
+    double posX = 1;
+    double posY = 1;
+    double posZ = 1;
 
-	bool drag = false;
-	bool from_camera = false;
+    bool drag = false;
+    bool from_camera = false;
 
-public:
+  public:
+    double x() const
+    {
+        return posX;
+    }
+    double y() const
+    {
+        return posY;
+    }
+    double z() const
+    {
+        return posZ;
+    }
 
-	double x() const
-	{
-		return  posX;
-	}
-	double y() const
-	{
-		return  posY;
-	}
-	double z() const
-	{
-		return  posZ;
-	}
+    void SetPosition(double x, double y, double z);
 
-	void SetPosition(double x, double y, double z);
+    void StartDrug(OpenGL* sender, KeyEventArg arg);
 
-	void StartDrug(OpenGL* sender, KeyEventArg arg);
+    void StopDrug(OpenGL* sender, KeyEventArg arg);
 
-	void StopDrug(OpenGL* sender, KeyEventArg arg);
+    void MoveLight(OpenGL* sender, MouseEventArg arg);
 
-	void MoveLight(OpenGL* sender, MouseEventArg arg);
+    void SetUpLight();
 
-	void SetUpLight();
-
-	void DrawLightGizmo();
-
+    void DrawLightGizmo();
 };
-
-
-#endif

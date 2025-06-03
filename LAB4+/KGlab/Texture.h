@@ -1,19 +1,15 @@
-﻿#ifndef TEXTURE_H
-#define TEXTURE_H
+﻿#pragma once
 
-#include<string>
+#include <string>
 
 class Texture
 {
-	unsigned int texId=0;
+    unsigned int texId = 0;
 
-public:
-	Texture() {};
-	~Texture();
+  public:
+    Texture(){};
+    ~Texture();
 
-	void LoadTexture(const std::string& texture_file_name);
-	void Bind();
-
+    void LoadTexture(const std::string& texture_file_name);
+    void Bind();
 };
-
-#endif
