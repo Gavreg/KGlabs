@@ -1,9 +1,9 @@
 ﻿#pragma once
 
-#include "GL/glext.h"
+#include <windows.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <windows.h>
+#include "GL/glext.h"
 
 #include <string>
 

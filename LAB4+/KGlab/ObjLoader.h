@@ -1,8 +1,9 @@
 #pragma once
 
-#include <GL/gl.h>
+
 #include <list>
 #include <windows.h>
+#include <GL/gl.h>
 
 struct ObjVertex
 {

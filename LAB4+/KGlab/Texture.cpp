@@ -1,7 +1,8 @@
 ﻿#include "Texture.h"
 
-#include <GL/gl.h>
 #include <windows.h>
+#include <GL/gl.h>
+
 
 // Библиотека для разгрузки изображений
 // https://github.com/nothings/stb
